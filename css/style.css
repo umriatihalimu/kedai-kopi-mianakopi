@@ -1,0 +1,416 @@
+:root {
+  --primary: #b6895b;
+  --bg: #010101;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none; /* agar bordernya itu kita yang pegang kendali atau atur-aturnya */
+  outline: none;
+  text-decoration: none; /* spy tidak ada garis bawahnya kalo bikin link */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff; /* spya warna tulisannya putih semua */
+}
+
+.navbar {
+  display: flex; /* spy isi dalam navbar bisa diatur */
+  justify-content: space-between; /* spy isinya sejajar kiri kanan */
+  align-items: center; /* spy sejajar atas bawaj */
+  padding: 1.4rem 7%; /* spy jika hal dikecilkan selalu ada space 7% kiri kanannya */
+  background-color: rgba(1, 1, 1, 0.8); /* nilai 0.8 itu transparasinya */
+  border-bottom: 1px solid #463320;
+  position: fixed; /* navbarnya diatas terus */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* spy navbar selalu paling atas tumpukannya */
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block; /* spy kata selanjutnya ada di sampingnya bukan ke bawah */
+  font-size: 1.3rem;
+  margin: 0 1rem; /* 0 margin atas bawah, 1rem kiri kanan */
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+.navbar .navbar-nav a::after {
+  content: ""; /* content kosong spy dimensinya bisa diatur */
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.1s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Hero Section */
+
+.hero {
+  min-height: 120vh; /* spy gambarnya penuh 1 layar */
+  display: flex; /* spy main content ada di tengah2 section scra vertikal */
+  align-items: center; /* spy isinya berada ditengah scra vertikal */
+  background-image: url("../img/bg-kopi.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::after {
+  /* membuat gradasi antara gambar dengan konten dibawahnya supaya tidak patah */
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 25%;
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(1, 1, 3, 1) 8%,
+    rgba(255, 255, 255, 0) 55%
+  );
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem; /* agar tulisannya tidak terlalu panjang */
+}
+
+.hero .content h1 {
+  font-size: 5rem;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+  color: #fff;
+  line-height: 1.2; /* jarak antara tulisan atas dan bawahnya */
+}
+
+.hero .content span {
+  color: var(--primary);
+}
+
+.hero .content p {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-top: 1rem;
+  font-weight: 300;
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+.hero .content .cta {
+  color: #fff;
+  display: inline-block; /* spy bisa dikasih padding & margin*/
+  margin-top: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.3rem;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+/* about, menu section */
+.about,
+.menu,
+.contact {
+  padding: 8rem 7% 1.4rem; /* atas 10rem kiri-kanan 7% bawah 1.4rem */
+}
+
+.about h2,
+.menu h2,
+.contact h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+}
+
+.about h2 span,
+.menu h2 span,
+.contact h2 span {
+  color: var(--primary);
+}
+
+.about .row {
+  display: flex; /* agar paragrafnya ada di samping img dan bisa diatur padding margin */
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+  width: 100%;
+}
+
+.about .row .about-content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .about-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.about .row .about-content p {
+  font-size: 1.2rem;
+  font-weight: 100;
+  line-height: 2rem;
+}
+
+/* menu section */
+.menu {
+  padding: 8rem 7% 1.4rem; /* atas 3rem kiri-kanan 7% bawah 1.4rem */
+}
+
+.menu h2,
+.contact h2 {
+  margin-bottom: 0.5rem;
+}
+
+.menu .menu-paragraf,
+.contact .menu-paragraf {
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 100;
+  max-width: 30rem;
+  margin: auto; /* agar semua tulisannya ke tengah */
+}
+
+.menu .row {
+  display: flex;
+  /* kolomnya ada 4 dalam 1 baris jgn lupa display grid  */
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.menu .row .menu-card {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.menu .row img {
+  width: 70%;
+  border-radius: 50%;
+}
+
+.menu .row .card-content h3 {
+  margin: 1rem auto 0.5rem;
+}
+
+.menu .row .card-content p {
+  font-weight: 100;
+}
+
+/* contact section */
+.contact .row {
+  display: flex;
+  background-color: #222;
+  margin-top: 2rem;
+}
+
+.contact .row .map {
+  flex: 1 1 45rem; /* spy petanya penuh satu layar */
+  width: 100%;
+  object-fit: cover;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact .row .input-grup {
+  display: flex;
+  background-color: var(--bg);
+  margin-top: 2rem;
+  align-items: center;
+  border: 1px solid #eee;
+  padding-left: 2rem;
+}
+
+.contact .row .input-grup input {
+  width: 100%;
+  padding: 1.5rem;
+  background: none;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.contact .row .btn {
+  color: #fff;
+  background-color: var(--primary);
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  margin-top: 2.5rem;
+  cursor: pointer; /* spy jika kursor ke arah sini berubah modelnya  */
+}
+
+/* footer */
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0 2rem;
+  margin-top: 2rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: white;
+  padding: 0.3rem;
+}
+
+footer .socials a:hover {
+  color: var(--bg);
+}
+
+footer .links {
+  margin-bottom: 1rem;
+}
+
+footer .links a {
+  padding: 1rem;
+  color: #fff;
+}
+
+footer .links a:hover,
+footer .credit a:hover {
+  color: var(--bg);
+}
+
+/* Media queries */
+/* referensinya dari responsive break point */
+
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  .about .row {
+    /* spy jika dibuka di tablet paragrafnya turun ke bawah img */
+    flex-wrap: wrap;
+  }
+
+  .about .row .about-img img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about .row .about-content {
+    padding: 0; /* spy sejajar dengan img diatasnya */
+  }
+
+  #hamburger-menu {
+    display: inline-block;
+    /* munculkan hamburger-menu ketika di kecilkan ukuran windownya */
+  }
+
+  /* pindahkan posisi menunya ke luar jendela syp pas diklik hamburger menunya masuk sebagai side bar*/
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .menu .menu-paragraf {
+    font-size: 1.3rem;
+  }
+
+  .contact .row {
+    flex-wrap: wrap;
+  }
+
+  .contact .row .map {
+    height: 30rem;
+  }
+
+  .contact .row form {
+    padding-top: 0;
+  }
+}
+
+/* Mobile phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+  .menu .row {
+    flex-wrap: wrap;
+  }
+  .menu .row img {
+    width: 50%;
+  }
+}
